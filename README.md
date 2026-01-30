@@ -51,7 +51,7 @@ axios.request(options).then(response => {
 }).catch(error => {
     console.error(error);
 });
-
+```
 **Example Response (Node.js/Axios):**
 ```json
 {
@@ -99,6 +99,7 @@ axios.request(options).then(response => {
 }).catch(error => {
     console.error(error);
 });
+```
 
 **Example Response (Node.js/Axios):**
 ```json
