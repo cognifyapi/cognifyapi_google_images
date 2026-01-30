@@ -22,9 +22,6 @@ This repository provides a quick-start guide and documentation for implementing 
 ### Base URL
 `https://google-images4.p.rapidapi.com`
 
-### 1. Fetch Images (`/getGoogleImages`)
-Retrieve images based on a search keyword.
-
 **Parameters:**
 | Parameter | Required | Description |
 | :--- | :--- | :--- |
@@ -32,13 +29,16 @@ Retrieve images based on a search keyword.
 | `count` | No | Number of results (Default: 100) |
 | `imageInfo`| No | Set to `true` to return width, height, and mime type. |
 
+### 1. Fetch Images with all parameters (`/getGoogleImages`)
+Retrieve images based on a search keyword with all parameters included.
+
 **Example Request (Node.js/Axios):**
 ```javascript
 const axios = require('axios');
 
 const options = {
   method: 'GET',
-  url: '[https://google-images4.p.rapidapi.com/getGoogleImages](https://google-images4.p.rapidapi.com/getGoogleImages)',
+  url: 'https://google-images4.p.rapidapi.com/getGoogleImages',
   params: {query: 'SpaceX', count: '5', imageInfo: 'true'},
   headers: {
     'X-RapidAPI-Key': 'YOUR_API_KEY',
@@ -51,3 +51,70 @@ axios.request(options).then(response => {
 }).catch(error => {
     console.error(error);
 });
+
+**Example Response (Node.js/Axios):**
+```json
+{
+    "status": "success",
+    "query": "SpaceX",
+    "results": 2,
+    "images": [
+        {
+            "url": "https://example.com/image.jpg",
+            "width": 1920,
+            "height": 1080,
+            "type": "jpg",
+            "mime": "image/jpg"
+        },
+{
+            "url": "https://example.com/image.jpg",
+            "width": 1920,
+            "height": 1080,
+            "type": "jpg",
+            "mime": "image/jpg"
+        }
+    ]
+}
+```
+
+### 2. Fetch Images without imageInfo parameter (`/getGoogleImages`)
+Retrieve images based on a search keyword.
+
+**Example Request (Node.js/Axios):**
+```javascript
+const axios = require('axios');
+
+const options = {
+  method: 'GET',
+  url: 'https://google-images4.p.rapidapi.com/getGoogleImages',
+  params: {query: 'SpaceX', count: '5'},
+  headers: {
+    'X-RapidAPI-Key': 'YOUR_API_KEY',
+    'X-RapidAPI-Host': 'google-images4.p.rapidapi.com'
+  }
+};
+
+axios.request(options).then(response => {
+    console.log(response.data);
+}).catch(error => {
+    console.error(error);
+});
+
+**Example Response (Node.js/Axios):**
+```json
+{
+    "status": "success",
+    "query": "SpaceX",
+    "results": 2,
+    "images": [
+        {
+            "url": "https://example.com/image.jpg",
+        },
+{
+            "url": "https://example.com/image.jpg",
+        }
+    ]
+}
+```
+
+
