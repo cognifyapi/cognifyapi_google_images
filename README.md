@@ -66,7 +66,7 @@ axios.request(options).then(response => {
             "type": "jpg",
             "mime": "image/jpg"
         },
-{
+        {
             "url": "https://example.com/image.jpg",
             "width": 1920,
             "height": 1080,
@@ -111,7 +111,7 @@ axios.request(options).then(response => {
         {
             "url": "https://example.com/image.jpg",
         },
-{
+        {
             "url": "https://example.com/image.jpg",
         }
     ]
